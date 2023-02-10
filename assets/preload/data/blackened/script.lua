@@ -20,11 +20,14 @@ end
 function onStartCountdown()
     local ohNo = getRandomInt(1, 100);
     if ohNo == 5 then
-        triggerEvent('Change Character', 'dad', 'nagito');
+        triggerEvent('Change Character', 'gf', 'nagito');
+        runHaxeCode("game.iconP2.changeIcon('drnagito');");
+        setHealthBarColors('42C458', '386DEE');
+    else
+        runHaxeCode("game.iconP2.changeIcon('drkokichi');");
+        setHealthBarColors('CC3AF3', '386DEE');
     end
 
-    runHaxeCode("game.iconP2.changeIcon('drkokichi');");
-    setHealthBarColors('CC3AF3', '386DEE');
     return Function_Continue;
 end
 
@@ -80,6 +83,12 @@ function onStepHit()
     elseif curStep == 2256 then
         doTweenX('shoo', 'dadGroup', -1200, 2, 'expoOut');
         doTweenX('shoo2', 'highChair', -1200, 2, 'expoOut');
+
+        runHaxeCode([[
+            game.iconP1.changeIcon('drshuichi');
+            game.iconP2.changeIcon('drkokichi');
+        ]]);
+        setHealthBarColors('CC3AF3', '386DEE');
     elseif curStep == 2512 then
         cameraFlash('hud', 'FFFFFF', 0.6, false);
         triggerEvent('Add Camera Zoom', '', '3.5');
