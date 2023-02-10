@@ -1,3 +1,0 @@
-Change Stage
-
-Value 1: 1 = Stage1, 2 = Stage2
